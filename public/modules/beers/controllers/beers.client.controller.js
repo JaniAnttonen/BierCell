@@ -12,6 +12,7 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 				name: this.name,
                 brewery: this.brewery,
                 bestBefore: this.bestBefore,
+                quantity: this.quantity
 			});
 
 			// Redirect after save
