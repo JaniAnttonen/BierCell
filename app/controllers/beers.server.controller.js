@@ -73,7 +73,7 @@ exports.delete = function(req, res) {
  * List of Beers
  */
 exports.list = function(req, res) { 
-	Beer.find().sort('-created').populate('user', 'displayName').exec(function(err, beers) {
+	Beer.find({ user: req.user.id }).sort('-created').populate('user', 'displayName').exec(function(err, beers) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

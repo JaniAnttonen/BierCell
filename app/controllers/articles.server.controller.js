@@ -85,6 +85,22 @@ exports.list = function(req, res) {
 };
 
 /**
+ * List of Articles by user
+ */
+exports.listByUser = function(req, res) {
+	console.log('jeejeejee', req.user.id);
+    Article.find({ user: req.user.id }).sort('-created').populate('user', 'displayName').exec(function(err, articles) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.json(articles);
+		}
+	});
+};
+
+/**
  * Article middleware
  */
 exports.articleByID = function(req, res, next, id) {

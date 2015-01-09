@@ -6,11 +6,11 @@ module.exports = function(app) {
 
 	// Beers Routes
 	app.route('/beers')
-		.get(beers.list)
+		.get(users.requiresLogin, beers.list)
 		.post(users.requiresLogin, beers.create);
 
 	app.route('/beers/:beerId')
-		.get(beers.read)
+		.get(users.requiresLogin, beers.hasAuthorization, beers.read)
 		.put(users.requiresLogin, beers.hasAuthorization, beers.update)
 		.delete(users.requiresLogin, beers.hasAuthorization, beers.delete);
 
