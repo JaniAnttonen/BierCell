@@ -4,13 +4,15 @@
     </div>
     <div class="list-group">
         <a data-ng-repeat="beer in beers" data-ng-href="#!/beers/{{beer._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="beer.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="beer.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="beer.name"></h4>
+			<div class="row">
+                <div class="col-md-6">
+                    <h4 class="list-group-item-heading" data-ng-bind="beer.name"></h4>
+                    <div class="text-muted" data-ng-hide="!beer.brewery">by </div><div class="text-muted" data-ng-hide="!beer.brewery" data-ng-bind="beer.brewery"></div>
+                </div>
+                <div class="pull-right">
+                    <small data-ng-bind="beer.bestBefore"></small>
+                </div>
+            </div>
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!beers.$resolved || beers.length">

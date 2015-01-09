@@ -23,7 +23,20 @@ var BeerSchema = new Schema({
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
-	}
+    },
+    bestBefore: {
+        type: Date,
+        default: Date.now
+    },
+    brewery: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    quantity: {
+        type: Number,
+        default: 1
+    }
 });
 
 mongoose.model('Beer', BeerSchema);

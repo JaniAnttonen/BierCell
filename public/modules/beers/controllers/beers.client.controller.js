@@ -9,7 +9,9 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 		$scope.create = function() {
 			// Create new Beer object
 			var beer = new Beers ({
-				name: this.name
+				name: this.name,
+                brewery: this.brewery,
+                bestBefore: this.bestBefore,
 			});
 
 			// Redirect after save
