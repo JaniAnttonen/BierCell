@@ -13,7 +13,7 @@
                     <span class="text-muted" data-ng-hide="!beer.brewery">by </span><span class="text-muted" data-ng-hide="!beer.brewery" data-ng-bind="beer.brewery"></span>
                 </div>
                 <div class="pull-right">
-                    <small data-ng-bind="beer.bestBefore"></small>
+                    <small data-ng-bind="{{beer.bestBefore|date:'dd-MM-yyyy'}}"></small>
                 </div>
             </div>
         </a>
