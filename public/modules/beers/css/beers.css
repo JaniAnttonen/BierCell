@@ -34,8 +34,10 @@
     border-width: 3px;
 }.page-header h1 {
     display:inline;
-}.page-header .glyphicon {
+}#breadcrumb {
     padding: 8px;
+    position: relative;
+    top:-4px;
 }.page-header a {
     color: inherit;
 }
