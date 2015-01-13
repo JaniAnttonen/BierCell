@@ -9,6 +9,10 @@
     color: #fff;
 }
 
+.beerListItem:hover {
+    background: #151515!important;
+}
+
 .beerListItem a {
     color: #fff;
 }
