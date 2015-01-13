@@ -17,7 +17,7 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 
 			// Redirect after save
 			beer.$save(function(response) {
-				$location.path('beers/' + response._id);
+				$location.path('/');
 
 				// Clear form fields
 				$scope.name = '';
@@ -48,7 +48,7 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 			var beer = $scope.beer;
 
 			beer.$update(function() {
-				$location.path('beers/' + beer._id);
+				$location.path('/');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

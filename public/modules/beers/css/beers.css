@@ -1,0 +1,19 @@
+.content, body {
+    background: #222;
+    color: #fff;
+}
+
+.beerListItem {
+    background: #191919;
+    border: none;
+    color: #fff;
+}
+
+.beerListItem a {
+    color: #fff;
+}
+
+.beerList {
+    border-radius: 0;
+    border: none;
+}

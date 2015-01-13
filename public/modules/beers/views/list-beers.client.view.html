@@ -2,18 +2,18 @@
     <div class="page-header">
         <h1>Beers</h1>
     </div>
-    <div class="list-group">
-        <a data-ng-repeat="beer in beers" data-ng-href="#!/beers/{{beer._id}}" class="list-group-item">
+    <div class="list-group beerList">
+        <a data-ng-repeat="beer in beers" data-ng-href="#!/beers/{{beer._id}}" class="list-group-item beerListItem">
 			<div class="row">
                 <div class="col-md-1 text-center">
-                    <big data-ng-bind="beer.quantity"></big>
+                    - <big data-ng-bind="beer.quantity"></big> +
                 </div>
                 <div class="col-md-6">
                     <h4 class="list-group-item-heading" data-ng-bind="beer.name"></h4>
                     <span class="text-muted" data-ng-hide="!beer.brewery">by </span><span class="text-muted" data-ng-hide="!beer.brewery" data-ng-bind="beer.brewery"></span>
                 </div>
                 <div class="pull-right">
-                    <small data-ng-bind="{{beer.bestBefore|date:'dd-MM-yyyy'}}"></small>
+                    <small data-ng-bind="{{beer.bestBefore | date:'dd-MM-yyyy'}}"></small>
                 </div>
             </div>
         </a>

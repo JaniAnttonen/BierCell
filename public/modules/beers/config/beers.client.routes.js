@@ -6,7 +6,7 @@ angular.module('beers').config(['$stateProvider',
 		// Beers state routing
 		$stateProvider.
 		state('listBeers', {
-			url: '/beers',
+			url: '/',
 			templateUrl: 'modules/beers/views/list-beers.client.view.html'
 		}).
 		state('createBeer', {
