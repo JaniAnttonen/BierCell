@@ -17,13 +17,41 @@
     color: #fff;
 }
 
+/* Removing default Bootstrap list behaviour */
 .beerList {
     border-radius: 0;
     border: none;
 }
 
+/* Overriding default Bootstrap colours */
 .list-group-item-heading {
     color: #ccc !important;
 }
 
+/* Page header styling */
+.page-header {
+    border-color: #272727;
+    border-width: 3px;
+}.page-header h1 {
+    display:inline;
+}.page-header .glyphicon {
+    padding: 8px;
+}.page-header a {
+    color: inherit;
+}
 
+/* Self-explanatory */
+#addBeerButton {
+    position:relative;
+    bottom:8px;left:12px;
+}
+
+#logOutButton {
+    position:relative;
+    bottom:-2px;
+}
+
+#loggedUser {
+    right: 18px;
+    top: 9px;
+}

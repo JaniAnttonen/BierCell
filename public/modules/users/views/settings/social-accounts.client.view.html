@@ -1,4 +1,30 @@
-<section class="row" data-ng-controller="SettingsController">
+<section class="row container" data-ng-controller="SettingsController">
+    <div class="page-header">
+        <a href="/#!/"><h1>BierCell</h1></a> <span class="glyphicon glyphicon-chevron-right"></span>
+        <h1>Connect Social Accounts</h1>
+
+        <a type="button" class="btn btn-danger pull-right" id="logOutButton" href="/auth/signout">Log out!</a>
+        <li class="dropdown pull-right" style="list-style:none;" id="loggedUser">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="/#!/settings/profile">Edit Profile</a>
+					</li>
+					<li>
+						<a href="/#!/settings/accounts">Manage Social Accounts</a>
+					</li>
+					<li data-ng-show="authentication.user.provider === 'local'">
+						<a href="/#!/settings/password">Change Password</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="/auth/signout">Signout</a>
+					</li>
+				</ul>
+        </li>
+    </div>
 	<h3 class="col-md-12 text-center" data-ng-show="hasConnectedAdditionalSocialAccounts()">Connected social accounts:</h3>
 	<div class="col-md-12 text-center">
 		<div data-ng-repeat="(providerName, providerData) in user.additionalProvidersData" class="remove-account-container">
@@ -8,7 +34,6 @@
 			</a>
 		</div>
 	</div>
-	<h3 class="col-md-12 text-center">Connect other social accounts:</h3>
 	<div class="col-md-12 text-center">
 		<a href="/auth/facebook" data-ng-hide="isConnectedSocialAccount('facebook')" class="undecorated-link">
 			<img src="/modules/users/img/buttons/facebook.png">

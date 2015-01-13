@@ -1,6 +1,29 @@
 <section data-ng-controller="BeersController" data-ng-init="findOne()">
     <div class="page-header">
+        <a href="/#!/"><h1>BierCell</h1></a> <span class="glyphicon glyphicon-chevron-right"></span>
         <h1>Edit Beer</h1>
+        <a type="button" class="btn btn-success" id="addBeerButton" href="/#!/beers/create">+</a>
+        <a type="button" class="btn btn-danger pull-right" id="logOutButton" href="/auth/signout">Log out!</a>
+        <li class="dropdown pull-right" style="list-style:none;" id="loggedUser">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="/#!/settings/profile">Edit Profile</a>
+					</li>
+					<li>
+						<a href="/#!/settings/accounts">Manage Social Accounts</a>
+					</li>
+					<li data-ng-show="authentication.user.provider === 'local'">
+						<a href="/#!/settings/password">Change Password</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="/auth/signout">Signout</a>
+					</li>
+				</ul>
+        </li>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
