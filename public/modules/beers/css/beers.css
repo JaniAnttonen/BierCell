@@ -17,3 +17,9 @@
     border-radius: 0;
     border: none;
 }
+
+.list-group-item-heading {
+    color: #ccc !important;
+}
+
+
