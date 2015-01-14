@@ -1,12 +1,26 @@
 <section data-ng-controller="BeersController" data-ng-init="findOne()">
     <div class="page-header">
-        <a href="/#!/"><h1>BierCell</h1></a> <span class="glyphicon glyphicon-chevron-right"></span>
+
+        <!-- App title -->
+        <a href="/#!/"><h1>BierCell</h1></a>
+
+        <!-- Breadcrumb -->
+        <span class="glyphicon glyphicon-chevron-right"></span>
+
+        <!-- Subpage title -->
         <h1>Edit Beer</h1>
+
+        <!-- Save a new beer button -->
         <a type="button" class="btn btn-success" id="addBeerButton" href="/#!/beers/create">+</a>
+
+        <!-- Log out button -->
         <a type="button" class="btn btn-danger pull-right" id="logOutButton" href="/auth/signout">Log out!</a>
+
+        <!-- User account controls -->
         <li class="dropdown pull-right" style="list-style:none;" id="loggedUser">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+					<!-- Username of the logged in user -->
+                    <span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
 					<li>
@@ -24,11 +38,15 @@
 					</li>
 				</ul>
         </li>
+
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
+
                 <div class="form-group">
+
+                    <!-- Beer editing fields -->
                     <label class="control-label" for="name">Name</label>
                     <div class="controls">
                         <input type="text" data-ng-model="beer.name" id="name" class="form-control" placeholder="Name" required>
@@ -39,17 +57,23 @@
                         <input type="text" data-ng-model="beer.brewery" id="brewery" class="form-control" placeholder="Name">
                     </div>
 
-                    <label class="control-label" for="name">Name</label>
+                    <label class="control-label" for="date">Best before</label>
                     <div class="controls">
                         <input type="date" data-ng-model="beer.bestBefore" id="date" class="form-control">
                     </div>
+
                 </div>
+
+                <!-- Submit button -->
                 <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-default">
                 </div>
+
+                <!-- Error field -->
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
 				</div>
+
             </fieldset>
         </form>
     </div>
