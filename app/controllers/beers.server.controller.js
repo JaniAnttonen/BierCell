@@ -71,6 +71,7 @@ exports.delete = function(req, res) {
 
 /**
  * List of Beers
+ * Modified to list the beers privately owned by the authenticated user
  */
 exports.list = function(req, res) { 
 	Beer.find({ user: req.user.id }).sort('-created').populate('user', 'displayName').exec(function(err, beers) {
