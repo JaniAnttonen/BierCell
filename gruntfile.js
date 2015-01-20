@@ -174,4 +174,7 @@ module.exports = function(grunt) {
 
 	// Test task.
 	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
+
+    // node-webkit-builder
+    grunt.loadNpmTasks('grunt-node-webkit-builder');
 };
