@@ -1,4 +1,4 @@
-<section class="beerListBG" data-ng-controller="BeersController" data-ng-init="find()">
+<section class="beerListBG" data-ng-controller="BeersController" data-ng-show="authentication.user" data-ng-init="find()">
     <div class="page-header">
         <h1>BierCell</h1>
         <a type="button" class="btn btn-success" id="addBeerButton" href="/#!/beers/create">+</a>
