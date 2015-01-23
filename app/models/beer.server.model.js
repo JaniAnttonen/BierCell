@@ -5,6 +5,8 @@
  */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
+	require('mongoose-currency').loadType(mongoose);
+var Currency = mongoose.Types.Currency;
 
 /**
  * Beer Schema
@@ -36,6 +38,10 @@ var BeerSchema = new Schema({
     quantity: {
         type: Number,
         default: 1
+    },
+    price: {
+    	type: Number,
+    	default: 0.00
     }
 });
 

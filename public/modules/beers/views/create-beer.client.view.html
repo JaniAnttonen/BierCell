@@ -27,23 +27,35 @@
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
                 <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
-                    <div class="controls">
+                    <label class="col-sm-2 control-label" for="name">Name</label>
+                    <div class="col-sm-10">
                         <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
                     </div>
-                    
-                    <label class="control-label" for="brewery">Brewery</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="brewery" id="brewery" class="form-control" placeholder="Name">
+                </div><div class="form-group">    
+                    <label class="col-sm-2 control-label" for="brewery">Brewery</label>
+                    <div class="col-sm-10">
+                        <input type="text" data-ng-model="brewery" id="brewery" class="form-control" placeholder="Brewery">
                     </div>
-                
-                    <label class="control-label" for="name">Name</label>
-                    <div class="controls">
-                        <input type="date" data-ng-model="bestBefore" id="date" class="form-control">
+                </div><div class="form-group">   
+                    <label class="col-sm-2 control-label" for="bestBefore">Best Before</label>
+                    <div class="col-sm-10">
+                        <input type="date" data-ng-model="bestBefore" id="bestBefore" class="form-control">
+                    </div>
+                </div><div class="form-group">   
+                    <label class="col-sm-2 control-label" for="quantity">Quantity</label>
+                    <div class="col-sm-10">
+                        <input type="number" data-ng-model="quantity" id="quantity" placeholder="1" class="form-control">
+                    </div>
+                </div><div class="form-group">
+                    <label class="col-sm-2 control-label" for="price">Price per beer</label>
+                    <div class="col-sm-10">
+                        <input type="text" data-ng-model="price" id="price" placeholder="0.00" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-default">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" class="btn btn-default">
+                    </div>
                 </div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>

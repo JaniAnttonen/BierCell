@@ -33,6 +33,16 @@
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	</div>
+	<dl class="dl-horizontal">
+		<dt>Quantity:</dt>
+  		<dd data-ng-bind="beer.quantity"></dd>
+  		<dt>Best before:</dt>
+  		<dd data-ng-bind="beer.bestBefore | date:'mediumDate'"></dd>
+  		<dt>Brewery:</dt>
+  		<dd data-ng-bind="beer.brewery"></dd>
+  		<dt>Price paid:</dt>
+  		<dd>{{beer.price | currency:'€'}}</dd>
+	</dl>
 	<small>
 		<em class="text-muted">
 			Posted on
