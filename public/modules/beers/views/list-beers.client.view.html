@@ -1,7 +1,11 @@
 <section class="beerListBG" data-ng-controller="BeersController" data-ng-show="authentication.user" data-ng-init="find()">
     <div class="page-header">
+
+        <!-- Header of the page -->
         <h1>BierCell</h1>
         <a type="button" class="btn btn-success" id="addBeerButton" href="/#!/beers/create">+</a>
+
+        <!-- pull-right-->
         <a type="button" class="btn btn-danger pull-right" id="logOutButton" href="/auth/signout">Log out!</a>
         <li class="dropdown pull-right" style="list-style:none;" id="loggedUser">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -23,24 +27,35 @@
 					</li>
 				</ul>
         </li>
+
     </div>
+
+    <!-- Content root -->
     <div class="list-group beerList">
-        <div data-ng-repeat="beer in beers" class="list-group-item beerListItem">
+        <div data-ng-repeat="beer in beers | orderBy:'bestBefore'" class="list-group-item beerListItem">
 			<div class="row">
-                <div class="col-md-1 text-center">
-                    <input type="submit" ng-click="subtractBeer(beer)" class="btn btn-default" value="-">
-                    <big data-ng-model="beer.quantity">{{ beer.quantity }}</big><input type="submit" ng-click="incrementBeer(beer)" class="btn btn-default" value="+">
+
+                <!-- Beer quantity, user can add and remove beers from list view -->
+                <div class="col-md-2 text-center">
+                        <input type="submit" ng-click="subtractBeer()" class="btn votingButton" value="-">
+                        <big data-ng-model="beer.quantity" class="beerQuantity">{{ beer.quantity }}</big><input type="submit" ng-click="incrementBeer()" class="btn votingButton" value="+">
+                    </form>
                 </div>
+
+                <!-- Beer information, clickable, goes to view-beer.client.view -->
                 <a href="#!/beers/{{beer._id}}">
-                    <div class="col-md-11">
+                    <div class="col-md-10">
                         <h4 class="list-group-item-heading" data-ng-bind="beer.name"></h4>
                         <span class="text-muted" data-ng-hide="!beer.brewery">by </span><span class="text-muted" data-ng-hide="!beer.brewery" data-ng-bind="beer.brewery"></span>
                         <span>, best before: </span><span data-ng-bind="beer.bestBefore|date:'mediumDate'"></span>
                     </div>
                 </a>
+
             </div>
         </div>
     </div>
+
+    <!-- Alert to user who has no beers. That's serious. -->
     <div class="alert alert-warning text-center" data-ng-hide="!beers.$resolved || beers.length">
     	No Beers yet, why don't you <a href="/#!/beers/create">create one</a>?
     </div>

@@ -56,18 +56,21 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 		};
 
 		// Increment quantity
-		$scope.incrementBeer = function(beer) {
-			beer.quantity += 1;
+		$scope.incrementBeer = function() {
+			var beer = $scope.beer;
+				this.beer.quantity += 1;
+				this.beer.$update();
 		};
 
 		// Subtract a beer
-		$scope.subtractBeer = function(beer) {
-			if (beer.quantity>0)
-				beer.quantity -= 1;
+		$scope.subtractBeer = function() {
+			var beer = $scope.beer;
+			if (this.beer.quantity>0)
+				this.beer.quantity -= 1;
 			else {
-				beer.$remove();
-				$location.path('/');
+				this.beer.$remove();
 			}
+			this.beer.$update();
 		};
 
 		// Find a list of Beers

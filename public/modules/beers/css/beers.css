@@ -42,6 +42,18 @@
     color: inherit;
 }
 
+input.votingButton {
+    background: transparent;
+    clear: none;
+    padding: 8px;
+    border: none;
+    font-size: 20px;
+}
+
+.beerQuantity {
+    line-height: 28px;
+}
+
 /* Self-explanatory */
 #addBeerButton {
     position:relative;
