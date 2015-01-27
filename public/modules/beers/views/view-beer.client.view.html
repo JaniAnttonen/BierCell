@@ -36,9 +36,9 @@
 	<dl class="dl-horizontal">
 		<dt>Quantity:</dt>
   		<dd data-ng-bind="beer.quantity"></dd>
-  		<dt>Best before:</dt>
+  		<dt data-ng-hide="!beer.bestBefore">Best before:</dt>
   		<dd data-ng-bind="beer.bestBefore | date:'mediumDate'"></dd>
-  		<dt>Brewery:</dt>
+  		<dt data-ng-hide="!beer.brewery">Brewery:</dt>
   		<dd data-ng-bind="beer.brewery"></dd>
   		<dt>Price paid:</dt>
   		<dd>{{beer.price | currency:'€'}}</dd>

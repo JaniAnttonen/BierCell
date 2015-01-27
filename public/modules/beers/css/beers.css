@@ -19,7 +19,9 @@
 
 /* Removing default Bootstrap list behaviour */
 .beerList {
-    border-radius: 0;
+    border-radius: 0 !important;
+    -moz-border-radius:0;
+    -webkit-border-radius:0;
     border: none;
 }
 
@@ -53,6 +55,14 @@ input.votingButton {
 .beerQuantity {
     line-height: 28px;
 }
+
+/* Removes border-radius */
+.btn {
+    border-radius:0;
+    -moz-border-radius:0;
+    -webkit-border-radius:0;
+}
+
 
 /* Self-explanatory */
 #addBeerButton {

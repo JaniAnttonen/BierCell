@@ -46,8 +46,8 @@
                 <a href="#!/beers/{{beer._id}}">
                     <div class="col-md-10">
                         <h4 class="list-group-item-heading" data-ng-bind="beer.name"></h4>
-                        <span class="text-muted" data-ng-hide="!beer.brewery">by </span><span class="text-muted" data-ng-hide="!beer.brewery" data-ng-bind="beer.brewery"></span>
-                        <span>, best before: </span><span data-ng-bind="beer.bestBefore|date:'mediumDate'"></span>
+                        <span class="text-muted" data-ng-hide="!beer.brewery">by </span><span class="text-muted" data-ng-hide="!beer.brewery" data-ng-bind="beer.brewery"></span><span class="text-muted" data-ng-hide="!beer.brewery">, </span>
+                        <span data-ng-hide="!beer.bestBefore">best before: </span><span data-ng-bind="beer.bestBefore|date:'mediumDate'"></span>
                     </div>
                 </a>
 
