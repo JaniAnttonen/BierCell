@@ -1,19 +1,10 @@
+/* --------------------------------------------- *
+ *              General settings                 *
+ * --------------------------------------------- */
+
+ /* Darken this shit up >:( */
 .content, body {
     background: #222;
-    color: #fff;
-}
-
-.beerListItem {
-    background: #191919;
-    border: none;
-    color: #fff;
-}
-
-.beerListItem:hover {
-    background: #151515!important;
-}
-
-.beerListItem a {
     color: #fff;
 }
 
@@ -30,6 +21,10 @@
     color: #ccc !important;
 }
 
+/* --------------------------------------------- *
+ *                  App details                  *
+ * --------------------------------------------- */
+
 /* Page header styling */
 .page-header {
     border-color: #272727;
@@ -44,6 +39,35 @@
     color: inherit;
 }
 
+/* Buttons in page header */
+#addBeerButton {
+    position:relative;
+    bottom:8px;left:12px;
+}#logOutButton {
+    position:relative;
+    bottom:-2px;
+}#loggedUser {
+    right: 18px;
+    top: 9px;
+}
+
+/* Sort buttons above the list */
+.sortButton {
+    background: #333;
+}
+
+/* Beer wrapper in list-view */
+.beerListItem {
+    background: #191919;
+    border: none;
+    color: #fff;
+}.beerListItem:hover {
+    background: #151515!important;
+}.beerListItem a {
+    color: #fff;
+}
+
+/* Plus and minus buttons which wrap the quantity in list-view */
 input.votingButton {
     background: transparent;
     clear: none;
@@ -52,6 +76,7 @@ input.votingButton {
     font-size: 20px;
 }
 
+/* Beer quantity in list-view */
 .beerQuantity {
     line-height: 28px;
 }
@@ -61,21 +86,4 @@ input.votingButton {
     border-radius:0;
     -moz-border-radius:0;
     -webkit-border-radius:0;
-}
-
-
-/* Self-explanatory */
-#addBeerButton {
-    position:relative;
-    bottom:8px;left:12px;
-}
-
-#logOutButton {
-    position:relative;
-    bottom:-2px;
-}
-
-#loggedUser {
-    right: 18px;
-    top: 9px;
 }

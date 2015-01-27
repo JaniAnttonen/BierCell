@@ -31,28 +31,34 @@
     </div>
 
     <!-- Content root -->
-    <div class="list-group beerList">
-        <div data-ng-repeat="beer in beers | orderBy:'bestBefore'" class="list-group-item beerListItem">
-			<div class="row">
+    <div class="list-group beerList" ng-init="orderby='bestBefore'">
 
-                <!-- Beer quantity, user can add and remove beers from list view -->
-                <div class="col-md-2 text-center">
-                        <input type="submit" ng-click="subtractBeer()" class="btn votingButton" value="-">
-                        <big data-ng-model="beer.quantity" class="beerQuantity">{{ beer.quantity }}</big><input type="submit" ng-click="incrementBeer()" class="btn votingButton" value="+">
-                    </form>
-                </div>
+      <button ng-click="orderby='quantity'" class="btn sortButton">Quantity</button>
+      <button ng-click="orderby='price'" class="btn sortButton">Price</button>
+      <button ng-click="orderby='bestBefore'" class="btn sortButton">Best Before</button>
+      <button ng-click="orderby='name'" class="btn sortButton">Name</button>
 
-                <!-- Beer information, clickable, goes to view-beer.client.view -->
-                <a href="#!/beers/{{beer._id}}">
-                    <div class="col-md-10">
-                        <h4 class="list-group-item-heading" data-ng-bind="beer.name"></h4>
-                        <span class="text-muted" data-ng-hide="!beer.brewery">by </span><span class="text-muted" data-ng-hide="!beer.brewery" data-ng-bind="beer.brewery"></span><span class="text-muted" data-ng-hide="!beer.brewery">, </span>
-                        <span data-ng-hide="!beer.bestBefore">best before: </span><span data-ng-bind="beer.bestBefore|date:'mediumDate'"></span>
-                    </div>
-                </a>
+      <div data-ng-repeat="beer in beers | orderBy:orderby" class="list-group-item beerListItem">
+  			<div class="row">
 
+                  <!-- Beer quantity, user can add and remove beers from list view -->
+            <div class="col-md-2 text-center">
+                    <input type="submit" ng-click="subtractBeer()" class="btn votingButton" value="-">
+                    <big data-ng-model="beer.quantity" class="beerQuantity">{{ beer.quantity }}</big><input type="submit" ng-click="incrementBeer()" class="btn votingButton" value="+">
+                </form>
             </div>
+
+            <!-- Beer information, clickable, goes to view-beer.client.view -->
+            <a href="#!/beers/{{beer._id}}">
+              <div class="col-md-10">
+                <h4 class="list-group-item-heading" data-ng-bind="beer.name"></h4>
+                <span class="text-muted" data-ng-hide="!beer.brewery">by </span><span class="text-muted" data-ng-hide="!beer.brewery" data-n-bind="beer.brewery"></span><span class="text-muted" data-ng-hide="!beer.brewery">, </span>
+                <span data-ng-hide="!beer.bestBefore">best before: </span><span data-ng-bind="beer.bestBefore|date:'mediumDate'"></span> 
+              </div>
+            </a>
+
         </div>
+      </div>
     </div>
 
     <!-- Alert to user who has no beers. That's serious. -->
