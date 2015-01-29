@@ -10,10 +10,10 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 			// Create new Beer object
 			var beer = new Beers ({
 				name: this.name,
-                brewery: this.brewery,
-                bestBefore: this.bestBefore,
-                quantity: this.quantity,
-                price: this.price
+        brewery: this.brewery,
+        bestBefore: this.bestBefore,
+        quantity: this.quantity,
+        price: this.price
 			});
 
 			// Redirect after save
@@ -29,7 +29,7 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 
 		// Remove existing Beer
 		$scope.remove = function(beer) {
-			if ( beer ) { 
+			if ( beer ) {
 				beer.$remove();
 
 				for (var i in $scope.beers) {
@@ -49,7 +49,7 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 			var beer = $scope.beer;
 
 			beer.$update(function() {
-				$location.path('/');
+				$location.path('beers');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -69,6 +69,7 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 				this.beer.quantity -= 1;
 			else {
 				this.beer.$remove();
+        $location.path('/beers');
 			}
 			this.beer.$update();
 		};
@@ -84,5 +85,18 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 				beerId: $stateParams.beerId
 			});
 		};
-	}
+
+    // Sorting buttons in the list view
+    $scope.buttons = [{'param':'quantity',title:'Quantity'},
+                      {'param':'price',title:'Price'},
+                      {'param':'bestBefore',title:'Best Before'},
+                      {'param':'name',title:'Alphabetic'}];
+
+    $scope.sort = function() {
+      if(this.param.substring(0)!=='-')
+        this.param.prepend('-');
+      else
+        this.param = this.param.substring(1);
+    };
+  }
 ]);
