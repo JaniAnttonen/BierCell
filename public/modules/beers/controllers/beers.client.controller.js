@@ -1,19 +1,21 @@
 'use strict';
 
 // Beers controller
-angular.module('beers').controller('BeersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Beers',
-	function($scope, $stateParams, $location, Authentication, Beers) {
+angular.module('beers').controller('BeersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Beers', 'Preferences',
+	function($scope, $stateParams, $location, Authentication, Beers, Preferences) {
 		$scope.authentication = Authentication;
+		$scope.user = Authentication.user;
+		$scope.preferences = Preferences;
 
 		// Create new Beer
 		$scope.create = function() {
 			// Create new Beer object
 			var beer = new Beers ({
 				name: this.name,
-        brewery: this.brewery,
-        bestBefore: this.bestBefore,
-        quantity: this.quantity,
-        price: this.price
+		        brewery: this.brewery,
+		        bestBefore: this.bestBefore,
+		        quantity: this.quantity,
+		        price: this.price
 			});
 
 			// Redirect after save
@@ -86,17 +88,16 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 			});
 		};
 
-    // Sorting buttons in the list view
+    // "Sort by" buttons in the list view
     $scope.buttons = [{'param':'quantity',title:'Quantity'},
                       {'param':'price',title:'Price'},
                       {'param':'bestBefore',title:'Best Before'},
                       {'param':'name',title:'Alphabetic'}];
 
-    $scope.sort = function() {
-      if(this.param.substring(0)!=='-')
-        this.param.prepend('-');
-      else
-        this.param = this.param.substring(1);
+    $scope.order = function(orderBy) {
+    	var preferences = $scope.preferences;
+    	preferences.order = orderBy;
     };
+
   }
 ]);

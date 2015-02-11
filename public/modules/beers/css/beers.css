@@ -1,89 +1,151 @@
 /* --------------------------------------------- *
- *              General settings                 *
- * --------------------------------------------- */
+*              General settings                 *
+* --------------------------------------------- */
 
- /* Darken this shit up >:( */
+/* Darken this shit up >:( */
 .content, body {
-    background: #222;
-    color: #fff;
+  background: #efefef;
+  color: #fff;
+}
+
+/* Make list view fullscreen */
+.beerListBG {
+  position: absolute;
+  left:0;top:0;
+  padding:0;margin:0;
+  width:100%;
+  height:auto;
 }
 
 /* Removing default Bootstrap list behaviour */
 .beerList {
-    border-radius: 0 !important;
-    -moz-border-radius:0;
-    -webkit-border-radius:0;
-    border: none;
+  border-radius: 0 !important;
+  -moz-border-radius:0;
+  -webkit-border-radius:0;
+  border: none;
+  padding-top: 50px;
+  background: #efefef;
 }
 
 /* Overriding default Bootstrap colours */
 .list-group-item-heading {
-    color: #ccc !important;
+  color: #444 !important;
 }
 
 /* --------------------------------------------- *
- *                  App details                  *
- * --------------------------------------------- */
+*                  App details                  *
+* --------------------------------------------- */
 
-/* Page header styling */
+/* Main menu in list view */
+.navbar{min-height:0 !important;}
+.mainMenu {
+  background: #ad8f5f; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ad8f5f 0%, #705e34 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ad8f5f), color-stop(100%,#705e34)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #ad8f5f 0%,#705e34 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #ad8f5f 0%,#705e34 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #ad8f5f 0%,#705e34 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #ad8f5f 0%,#705e34 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ad8f5f', endColorstr='#705e34',GradientType=0 ); /* IE6-9 */
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+  padding:8px;
+}
+
+.mainMenu .btn {
+  margin-right:10px;
+}
+.mainMenu .btn-danger {
+  margin-right:0;
+}
+
+/* Page header styling, not used in list-view */
 .page-header {
-    border-color: #272727;
-    border-width: 3px;
+  border-color: #272727;
+  border-width: 3px;
 }.page-header h1 {
-    display:inline;
+  display:inline;
 }.glyphicon-chevron-right {
-    padding: 8px;
-    position: relative;
-    top:-4px;
+  padding: 8px;
+  position: relative;
+  top:-4px;
 }.page-header a {
-    color: inherit;
+  color: inherit;
 }
 
 /* Buttons in page header */
 #addBeerButton {
-    position:relative;
-    bottom:8px;left:12px;
+  position:relative;
+  bottom:8px;left:12px;
 }#logOutButton {
-    position:relative;
-    bottom:-2px;
+  position:relative;
+  bottom:-2px;
 }#loggedUser {
-    right: 18px;
-    top: 9px;
+  background: rgba(0,0,0,0.2);
+  border:none;
+  height:35px;
+  margin-top:-1px;
+}#loggedUser a {
+  display:block;
+  text-shadow:none;
+  color:#fff;
+  position:relative;
+  height:100%;width:100%;
+  margin-top:1px;
 }
 
 /* Sort buttons above the list */
 .sortButton {
-    background: #333;
+  background: rgba(0,0,0,0.2);
+}.sortButton:active {
+  outline:none;
+  color:#fff;
+}.sortButton:focus {
+  outline:none;
+  color:#fff;background:rgba(0,0,0,0.5);
+}.sortButton:selected {
+  background:#efefef;
+}.sortButton:hover {
+  color:#ebebeb;
+}
+
+.sortButton .caret {
+  display:none;
+}.sortButton:focus .caret {
+  display:inline-block;
 }
 
 /* Beer wrapper in list-view */
 .beerListItem {
-    background: #191919;
-    border: none;
-    color: #fff;
-}.beerListItem:hover {
-    background: #151515!important;
+  border: none;
+  color: #333;
+}.beerList .even {
+  background:#EAE2D7;
+}.beerList .odd {
+  background: #EFE9E1;
+}
+.beerListItem:hover {
+  background: #eee!important;
 }.beerListItem a {
-    color: #fff;
+  color: #333;
 }
 
 /* Plus and minus buttons which wrap the quantity in list-view */
 input.votingButton {
-    background: transparent;
-    clear: none;
-    padding: 8px;
-    border: none;
-    font-size: 20px;
+  background: transparent;
+  clear: none;
+  padding: 8px;
+  border: none;
+  font-size: 20px;
 }
 
 /* Beer quantity in list-view */
 .beerQuantity {
-    line-height: 28px;
+  line-height: 28px;
 }
 
 /* Removes border-radius */
 .btn {
-    border-radius:0;
-    -moz-border-radius:0;
-    -webkit-border-radius:0;
+  border-radius:10px;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
 }
