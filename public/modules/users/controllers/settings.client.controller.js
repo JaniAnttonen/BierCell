@@ -3,9 +3,10 @@
 angular.module('users').controller('SettingsController', ['$scope', '$http', '$location', 'Users', 'Authentication', 'Preferences',
 	function($scope, $http, $location, Users, Authentication, Preferences) {
 		$scope.user = Authentication.user;
+		$scope.preferences = Preferences;
 
 		// If user is not signed in then redirect back home
-		if (!$scope.user) $location.path('/');
+		if (!$scope.user) $location.path('/signin');
 
 		// Check if there are additional accounts 
 		$scope.hasConnectedAdditionalSocialAccounts = function(provider) {
@@ -43,6 +44,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			if (isValid) {
 				$scope.success = $scope.error = null;
 				var user = new Users($scope.user);
+				Authentication.user.order = $scope.preferences;
 
 				user.$update(function(response) {
 					$scope.success = true;

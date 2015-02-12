@@ -4,7 +4,6 @@
 angular.module('beers').controller('BeersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Beers', 'Preferences',
 	function($scope, $stateParams, $location, Authentication, Beers, Preferences) {
 		$scope.authentication = Authentication;
-		$scope.user = Authentication.user;
 		$scope.preferences = Preferences;
 
 		// Create new Beer
@@ -88,16 +87,15 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 			});
 		};
 
-    // "Sort by" buttons in the list view
-    $scope.buttons = [{'param':'quantity',title:'Quantity'},
-                      {'param':'price',title:'Price'},
-                      {'param':'bestBefore',title:'Best Before'},
-                      {'param':'name',title:'Alphabetic'}];
+	    // "Sort by" buttons in the list view
+	    $scope.buttons = [{'param':'quantity',title:'Quantity'},
+	                      {'param':'price',title:'Price'},
+	                      {'param':'bestBefore',title:'Best Before'},
+	                      {'param':'name',title:'Alphabetic'}];
 
-    $scope.order = function(orderBy) {
-    	var preferences = $scope.preferences;
-    	preferences.order = orderBy;
-    };
+	    $scope.order = function(orderBy) {
+	    	$scope.preferences(orderBy);
+	    };
 
   }
 ]);

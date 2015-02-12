@@ -16,6 +16,11 @@ exports.update = function(req, res) {
 	// Init Variables
 	var user = req.user;
 	var message = null;
+	var orderPreference;
+	if (req.orderPreference)
+		orderPreference = req.orderPreference;
+	else
+		orderPreference = '+bestBefore';
 
 	// For security measurement we remove the roles from the req.body object
 	delete req.body.roles;
@@ -25,6 +30,7 @@ exports.update = function(req, res) {
 		user = _.extend(user, req.body);
 		user.updated = Date.now();
 		user.displayName = user.firstName + ' ' + user.lastName;
+		user.orderPreference = orderPreference;
 
 		user.save(function(err) {
 			if (err) {

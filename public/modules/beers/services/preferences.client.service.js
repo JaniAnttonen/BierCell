@@ -1,7 +1,5 @@
 'use strict';
 
-angular.module('beers').factory('Preferences', [
-	function(){
+angular.module('beers').factory('Preferences',function(){
 		return {order: '+bestBefore'};
-	}
-]);
+});
