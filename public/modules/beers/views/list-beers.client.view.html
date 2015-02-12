@@ -7,8 +7,8 @@
         <div data-ng-repeat="button in buttons" class="btn-group inline">
 
             <!-- Button itself, changes the order direction when pressed -->
-            <button ng-click="direction=direction=='+'?'-':'+';orderSettings.orderby=direction+button.param;preferences.order = orderSettings.orderby"
-                    ng-class="direction==='-' ? 'dropdown' : 'dropup'"
+            <button ng-click="direction=direction=='+'?'-':'+';preferences.order=direction+button.param;"
+                    ng-class="(direction==='-'?'dropdown':'dropup')+' '+(preferences.order===direction+button.param?'active':'inactive')"
                     class="btn sortButton">{{button.title}} 
                 <span class="caret"></span>
             </button>
@@ -40,7 +40,7 @@
     </div>
 
     <!-- Content root -->
-    <div class="list-group beerList" ng-init="orderSettings={orderby:authentication.user.orderPreference};direction='+'">
+    <div class="list-group beerList" ng-init="direction='+'">
 
         <div data-ng-repeat="beer in beers | orderBy:preferences.order" ng-class="beer.bestBefore<Date.now()?:'danger'" ng-class-odd="'odd'" ng-class-even="'even'" class="list-group-item beerListItem">
             <div class="row">
@@ -56,7 +56,6 @@
                         <h4 class="list-group-item-heading" data-ng-bind="beer.name"></h4>
                         <span class="text-muted" data-ng-hide="!beer.brewery">by </span><span class="text-muted" data-ng-hide="!beer.brewery" data-n-bind="beer.brewery"></span><span class="text-muted" data-ng-hide="!beer.brewery">, </span>
                         <span data-ng-hide="!beer.bestBefore">best before: </span><span data-ng-bind="beer.bestBefore|date:'mediumDate'"></span>
-                        <span data-ng-bind="preferences.order"></span>
                     </div>
                 </a>
 

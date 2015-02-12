@@ -99,7 +99,7 @@
 }.sortButton:active {
   outline:none;
   color:#fff;
-}.sortButton:focus {
+}.sortButton:focus,.sortButton.active {
   outline:none;
   color:#fff;background:rgba(0,0,0,0.5);
 }.sortButton:selected {
@@ -110,7 +110,7 @@
 
 .sortButton .caret {
   display:none;
-}.sortButton:focus .caret {
+}.sortButton:focus .caret, .sortButton.active .caret {
   display:inline-block;
 }
 
@@ -148,4 +148,4 @@ input.votingButton {
   border-radius:10px;
   -moz-border-radius:10px;
   -webkit-border-radius:10px;
-}
+}.btn.inactive:focus,.btn.active:focus{outline:0;}
