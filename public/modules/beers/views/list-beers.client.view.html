@@ -1,19 +1,23 @@
 <section class="beerListBG" data-ng-controller="BeersController" data-ng-show="authentication.user" data-ng-init="find()">
 
-    <div class="mainMenu navbar navbar-fixed-top">
+    <div data-ng-controller="SettingsController" class="mainMenu navbar navbar-fixed-top">
         <a type="button" class="btn btn-success" href="/#!/beers/create">+</a>
 
         <!-- "Order by" buttons -->
+        <div class="btn-group inline">
         <div data-ng-repeat="button in buttons" class="btn-group inline">
 
             <!-- Button itself, changes the order direction when pressed -->
-            <button ng-click="direction=direction=='+'?'-':'+';preferences.order=direction+button.param;"
-                    ng-class="(direction==='-'?'dropdown':'dropup')+' '+(preferences.order===direction+button.param?'active':'inactive')"
+            <button ng-click="direction=direction=='+'?'-':'+';authentication.user.orderPreference=direction+button.param;saveOrder();"
+                    ng-class="(direction==='-'?'dropdown':'dropup')+' '+(authentication.user.orderPreference===direction+button.param?'active':'inactive')"
                     class="btn sortButton">{{button.title}} 
                 <span class="caret"></span>
             </button>
 
         </div>
+        </div>
+
+        {{authentication.user.orderPreference}}
 
         <!-- pull-right-->
         <a type="button" class="btn btn-danger pull-right" href="/auth/signout">Log out!</a>
@@ -42,7 +46,7 @@
     <!-- Content root -->
     <div class="list-group beerList" ng-init="direction='+'">
 
-        <div data-ng-repeat="beer in beers | orderBy:preferences.order" ng-class="beer.bestBefore<Date.now()?:'danger'" ng-class-odd="'odd'" ng-class-even="'even'" class="list-group-item beerListItem">
+        <div data-ng-repeat="beer in beers | orderBy:authentication.user.orderPreference" ng-class="beer.bestBefore<now?'':'danger'" ng-class-odd="'odd'" ng-class-even="'even'" class="list-group-item beerListItem">
             <div class="row">
                 <!-- Beer quantity, user can add and remove beers from list view -->
                 <div class="col-md-2 text-center">

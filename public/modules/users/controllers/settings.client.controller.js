@@ -1,9 +1,8 @@
 'use strict';
 
-angular.module('users').controller('SettingsController', ['$scope', '$http', '$location', 'Users', 'Authentication', 'Preferences',
-	function($scope, $http, $location, Users, Authentication, Preferences) {
+angular.module('users').controller('SettingsController', ['$scope', '$http', '$location', 'Users', 'Authentication',
+	function($scope, $http, $location, Users, Authentication) {
 		$scope.user = Authentication.user;
-		$scope.preferences = Preferences;
 
 		// If user is not signed in then redirect back home
 		if (!$scope.user) $location.path('/signin');
@@ -44,7 +43,6 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			if (isValid) {
 				$scope.success = $scope.error = null;
 				var user = new Users($scope.user);
-				Authentication.user.order = $scope.preferences;
 
 				user.$update(function(response) {
 					$scope.success = true;
@@ -69,5 +67,13 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 				$scope.error = response.message;
 			});
 		};
+
+		// "Sort by" buttons in the list view
+	    $scope.buttons = [{'param':'quantity',title:'Quantity'},
+	                      {'param':'price',title:'Price'},
+	                      {'param':'bestBefore',title:'Best Before'},
+	                      {'param':'name',title:'Alphabetic'}];
+
+	    $scope.saveOrder=function(){$scope.updateUserProfile($scope.user);};
 	}
 ]);

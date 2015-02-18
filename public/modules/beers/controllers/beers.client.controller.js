@@ -1,10 +1,10 @@
 'use strict';
 
 // Beers controller
-angular.module('beers').controller('BeersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Beers', 'Preferences',
-	function($scope, $stateParams, $location, Authentication, Beers, Preferences) {
+angular.module('beers').controller('BeersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Beers',
+	function($scope, $stateParams, $location, Authentication, Beers) {
 		$scope.authentication = Authentication;
-		$scope.preferences = Preferences;
+		$scope.now = new Date();
 
 		// Create new Beer
 		$scope.create = function() {
@@ -59,8 +59,8 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 		// Increment quantity
 		$scope.incrementBeer = function() {
 			var beer = $scope.beer;
-				this.beer.quantity += 1;
-				this.beer.$update();
+			this.beer.quantity += 1;
+			this.beer.$update();
 		};
 
 		// Subtract a beer
@@ -86,16 +86,6 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 				beerId: $stateParams.beerId
 			});
 		};
-
-	    // "Sort by" buttons in the list view
-	    $scope.buttons = [{'param':'quantity',title:'Quantity'},
-	                      {'param':'price',title:'Price'},
-	                      {'param':'bestBefore',title:'Best Before'},
-	                      {'param':'name',title:'Alphabetic'}];
-
-	    $scope.order = function(orderBy) {
-	    	$scope.preferences(orderBy);
-	    };
 
   }
 ]);
