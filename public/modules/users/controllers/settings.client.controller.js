@@ -42,11 +42,13 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		$scope.updateUserProfile = function(isValid) {
 			if (isValid) {
 				$scope.success = $scope.error = null;
+				console.log('a', $scope.user);
 				var user = new Users($scope.user);
-
+				console.log('b', user);
 				user.$update(function(response) {
 					$scope.success = true;
-					Authentication.user = response;
+					console.log('c', response);
+					$scope.user = Authentication.user = response;
 				}, function(response) {
 					$scope.error = response.data.message;
 				});
@@ -74,6 +76,6 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 	                      {'param':'bestBefore',title:'Best Before'},
 	                      {'param':'name',title:'Alphabetic'}];
 
-	    $scope.saveOrder=function(){$scope.updateUserProfile($scope.user);};
+	    $scope.saveOrder=function(){$scope.updateUserProfile(true);};
 	}
 ]);

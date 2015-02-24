@@ -1,7 +1,8 @@
 'use strict';
 
 // Beers controller
-angular.module('beers').controller('BeersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Beers',
+angular.module('beers').controller('BeersController', 
+	['$scope', '$stateParams', '$location', 'Authentication', 'Beers',
 	function($scope, $stateParams, $location, Authentication, Beers) {
 		$scope.authentication = Authentication;
 		$scope.now = new Date();

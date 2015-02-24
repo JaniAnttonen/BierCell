@@ -42,6 +42,10 @@ var BeerSchema = new Schema({
     price: {
     	type: Number,
     	default: 0.00
+    },
+    rateBeerScore: {
+        type: Number,
+        default: 0
     }
 });
 
