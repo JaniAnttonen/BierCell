@@ -100,6 +100,7 @@
 /* Sort buttons above the list */
 .sortButton {
   background: rgba(0,0,0,0.2);
+  display:inline;
 }.sortButton:active {
   outline:none;
   color:#fff;
@@ -117,6 +118,15 @@
 }.sortButton:focus .caret, .sortButton.active .caret {
   display:inline-block;
 }
+
+.sortButtonWrapper {
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sortButtonDiv { display: inline; }
 
 /* Beer wrapper in list-view */
 .beerListItem {
