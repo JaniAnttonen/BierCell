@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Beer = mongoose.model('Beer'),
+	BreweryDb = require('brewerydb-node'),
 	_ = require('lodash');
 
 /**
