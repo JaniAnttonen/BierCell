@@ -47,17 +47,18 @@
   background: -ms-linear-gradient(top,  #AF9B75 0%,#7A6C52 100%); /* IE10+ */
   background: linear-gradient(to bottom,  #AF9B75 0%,#7A6C52 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#AF9B75', endColorstr='#7A6C52',GradientType=0 ); /* IE6-9 */
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   padding:8px;
 }
 
+/* Menu button margins */
 .mainMenu .btn {
   margin-right:10px;
-}
-.mainMenu .btn-danger {
+}.mainMenu .btn-danger {
   margin-right:0;
 }
 
+/* User dropdown menu color */
 .dropdown-menu {
   background: rgba(30,20,0,0.5);
 }
@@ -104,8 +105,9 @@
 }.sortButton:active {
   outline:none;
   color:#fff;
-}.sortButton:focus,.sortButton.active {
+}.sortButton:focus {
   outline:none;
+}.sortButton:focus,.sortButton.active {
   color:#fff;background:rgba(0,0,0,0.5);
 }.sortButton:selected {
   background:#efefef;
@@ -113,19 +115,20 @@
   color:#ebebeb;
 }
 
+/* Fix dropdown and dropup menu symbol behaviour */
 .sortButton .caret {
   display:none;
 }.sortButton:focus .caret, .sortButton.active .caret {
   display:inline-block;
 }
 
+/* Make button group oveflow scrollable on small screens */
 .sortButtonWrapper {
   white-space: nowrap;
   overflow-y: hidden;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
 }
-
 .sortButtonDiv { display: inline; }
 
 /* Beer wrapper in list-view */
@@ -157,9 +160,9 @@ input.votingButton {
   line-height: 28px;
 }
 
-/* Removes border-radius */
+/* Button generics */
 .btn {
-  border-radius:10px;
   -moz-border-radius:10px;
   -webkit-border-radius:10px;
+  border-radius:10px;
 }.btn.inactive:focus,.btn.active:focus{outline:0;}
