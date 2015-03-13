@@ -1,22 +1,20 @@
 'use strict';
 
 // Beers controller
-angular.module('beers').controller('BeersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Beers',
-  function($scope, $stateParams, $location, Authentication, Beers) {
+angular.module('beers').controller('BeersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Beers', 'RateBeer',
+  function($scope, $stateParams, $location, Authentication, Beers, RateBeer) {
     $scope.authentication = Authentication;
     $scope.now = new Date();
-
-    //var brewdb = new BreweryDb('your-key-here');
 
     // Create new Beer
     $scope.create = function() {
       // Create new Beer object
       var beer = new Beers({
-        name: this.name,
-        brewery: this.brewery,
-        bestBefore: this.bestBefore,
-        quantity: this.quantity,
-        price: this.price
+          name: this.name,
+          brewery: this.brewery,
+          bestBefore: this.bestBefore,
+          quantity: this.quantity,
+          price: this.price
       });
 
       // Redirect after save
@@ -79,6 +77,7 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 
     // Find a list of Beers
     $scope.find = function() {
+      console.log($scope.ratebeer);
       $scope.beers = Beers.query();
     };
 

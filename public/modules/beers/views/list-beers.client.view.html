@@ -10,7 +10,7 @@
                 <!-- Button itself, changes the order direction when pressed -->
                 <button ng-click="direction=direction=='+'?'-':'+';authentication.user.orderPreference=direction+button.param;saveOrder();"
                         ng-class="(direction==='-'?'dropdown':'dropup')+' '+(authentication.user.orderPreference.substring(1)===button.param?'active':'inactive')"
-                        class="btn sortButton inline">{{button.title}} 
+                        class="btn sortButton inline">{{button.title}}
                     <span class="caret"></span>
                 </button>
 
@@ -51,8 +51,6 @@
                     <input type="submit" ng-click="subtractBeer()" class="btn votingButton" value="-">
                     <big data-ng-model="beer.quantity" class="beerQuantity">{{ beer.quantity }}</big><input type="submit" ng-click="incrementBeer()" class="btn votingButton" value="+">
                 </div>
-
-                ebinimpääkin
 
                 <!-- Beer information, clickable, goes to view-beer.client.view -->
                 <a href="#!/beers/{{beer._id}}">

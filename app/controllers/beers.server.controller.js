@@ -6,7 +6,6 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Beer = mongoose.model('Beer'),
-	BreweryDb = require('brewerydb-node'),
 	_ = require('lodash');
 
 /**
@@ -75,7 +74,7 @@ exports.delete = function(req, res) {
  * List of Beers
  * Modified to list the beers privately owned by the authenticated user
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	Beer.find({ user: req.user.id }).sort('-created').populate('user', 'displayName').exec(function(err, beers) {
 		if (err) {
 			return res.status(400).send({
@@ -90,7 +89,7 @@ exports.list = function(req, res) {
 /**
  * Beer middleware
  */
-exports.beerByID = function(req, res, next, id) { 
+exports.beerByID = function(req, res, next, id) {
 	Beer.findById(id).populate('user', 'displayName').exec(function(err, beer) {
 		if (err) return next(err);
 		if (! beer) return next(new Error('Failed to load Beer ' + id));
