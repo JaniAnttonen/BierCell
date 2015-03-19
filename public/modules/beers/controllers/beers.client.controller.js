@@ -90,9 +90,7 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 
     // Find ratebeer score for a beer
     $scope.getScore = function() {
-      $scope.score = RateBeer.get({
-        beerId: $stateParams.beerId
-      });
+      $scope.score = RateBeer.get(this.beer);
       console.log($scope.score);
     };
 
