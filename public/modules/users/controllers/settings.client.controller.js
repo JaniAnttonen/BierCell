@@ -68,8 +68,9 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		};
 
 		// "Sort by" buttons in the list view
-	    $scope.buttons = [{'param':'quantity',title:'Quantity'},
-	                      {'param':'price',title:'Price'},
+	    $scope.buttons = [{'param':'rateBeerScore',title:'Ratebeer Score'},
+												{'param':'quantity',title:'Quantity'},
+	                      {'param':'price',title:'Price/Beer'},
 	                      {'param':'bestBefore',title:'Best Before'},
 	                      {'param':'name',title:'Alphabetic'}];
 

@@ -58,7 +58,7 @@
                         <h4 class="list-group-item-heading" data-ng-bind="beer.name"></h4>
                         <span class="text-muted" data-ng-hide="!beer.brewery">by </span><span class="text-muted" data-ng-hide="!beer.brewery" data-n-bind="beer.brewery"></span><span class="text-muted" data-ng-hide="!beer.brewery">, </span>
                         <span data-ng-hide="!beer.bestBefore">best before: </span><span data-ng-bind="beer.bestBefore|date:'mediumDate'"></span>
-
+                        {{ score }}
                         <!-- ratebeer score -->
                         <big data-ng-model="beer.rateBeerScore" class="rateBeerScore">{{ beer.rateBeerScore }}</big>
                     </div>

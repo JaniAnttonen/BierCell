@@ -5,6 +5,7 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
   function($scope, $stateParams, $location, Authentication, Beers, RateBeer) {
     $scope.authentication = Authentication;
     $scope.now = new Date();
+    $scope.score = RateBeer;
 
     // Create new Beer
     $scope.create = function() {
@@ -77,7 +78,6 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
 
     // Find a list of Beers
     $scope.find = function() {
-      console.log($scope.ratebeer);
       $scope.beers = Beers.query();
     };
 
@@ -86,6 +86,14 @@ angular.module('beers').controller('BeersController', ['$scope', '$stateParams',
       $scope.beer = Beers.get({
         beerId: $stateParams.beerId
       });
+    };
+
+    // Find ratebeer score for a beer
+    $scope.getScore = function() {
+      $scope.score = RateBeer.get({
+        beerId: $stateParams.beerId
+      });
+      console.log($scope.score);
     };
 
   }

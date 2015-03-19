@@ -57,7 +57,7 @@ exports.update = function(req, res) {
  * Delete an Beer
  */
 exports.delete = function(req, res) {
-	var beer = req.beer ;
+	var beer = req.beer;
 
 	beer.remove(function(err) {
 		if (err) {
