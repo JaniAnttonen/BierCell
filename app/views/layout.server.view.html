@@ -34,6 +34,9 @@
 	<!-- Fav Icon -->
 	<link href="/modules/core/img/brand/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
+	<!-- Angular Material Design -->
+	<link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
+
 	<!--Application CSS Files-->
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 
@@ -66,6 +69,7 @@
 	<script type="text/javascript" src="http://{{request.hostname}}:35729/livereload.js"></script>
 	{% endif %}
 
+<<<<<<< HEAD
 	<script src="lib/angular-aria.min.js"></script>
 	<script src="lib/angular-material.min.js"></script>
     <script>
@@ -76,6 +80,21 @@
             .controller("BeersController", BeersController );
 
     </script>
+=======
+	<!-- Angular Material Design -->
+	<script src="/node_modules/angular/angular.js"></script>
+  <script src="/node_modules/angular-aria/angular-aria.js"></script>
+  <script src="/node_modules/angular-animate/angular-animate.js"></script>
+  <script src="/node_modules/angular-material/angular-material.js"></script>
+  <script>
+
+      // Include app dependency on ngMaterial
+
+      angular.module( 'YourApp', [ 'ngMaterial' ] )
+          .controller("YourController", YourController );
+
+  </script>
+>>>>>>> 3222933febc1ed4dd60f4db4147bc06f72729897
 </body>
 
 </html>
