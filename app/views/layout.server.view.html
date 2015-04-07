@@ -37,6 +37,9 @@
 	<!--Application CSS Files-->
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 
+	<!-- Angular Material -->
+	<link rel="stylesheet" href="lib/angular-material.min.css">
+
 	<!-- HTML5 Shim -->
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -56,12 +59,23 @@
 	</script>
 
 	<!--Application JavaScript Files-->
-	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %} 
+	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
 
 	{% if process.env.NODE_ENV === 'development' %}
 	<!--Livereload script rendered -->
 	<script type="text/javascript" src="http://{{request.hostname}}:35729/livereload.js"></script>
 	{% endif %}
+
+	<script src="lib/angular-aria.min.js"></script>
+	<script src="lib/angular-material.min.js"></script>
+    <script>
+
+        // Include app dependency on ngMaterial
+
+        angular.module( 'Bier Cell', [ 'ngMaterial' ] )
+            .controller("BeersController", BeersController );
+
+    </script>
 </body>
 
 </html>

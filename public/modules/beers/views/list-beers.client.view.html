@@ -1,6 +1,6 @@
 <section class="beerListBG" data-ng-controller="BeersController" data-ng-show="authentication.user" data-ng-init="find()">
 
-    <div data-ng-controller="SettingsController" class="mainMenu navbar navbar-fixed-top">
+    <md-toolbar layout="row" data-ng-controller="SettingsController" class="md-default-theme mainMenu navbar navbar-fixed-top">
         <a type="button" class="btn btn-success" href="/#!/beers/create">+</a>
 
         <!-- "Order by" buttons -->
@@ -39,7 +39,7 @@
                 </li>
             </ul>
         </li>
-    </div>
+    </md-toolbar>
 
     <!-- Content root -->
     <div class="list-group beerList" ng-init="direction=authentication.user.orderPreference.substring(0,1)">
