@@ -19,9 +19,9 @@
 
 /* Removing default Bootstrap list behaviour */
 .beerList {
-  border-radius: 0 !important;
-  -moz-border-radius:0;
   -webkit-border-radius:0;
+  -moz-border-radius:0;
+  border-radius: 0 !important;
   border: none;
   padding-top: 50px;
   background: #efefef;
@@ -60,6 +60,7 @@
 
 /* User dropdown menu color */
 .dropdown-menu {
+  background: rgb(0,0,0);
   background: rgba(30,20,0,0.5);
 }
 
@@ -78,18 +79,19 @@
 }
 
 /* Buttons in page header */
-#addBeerButton {
+.addBeerButton {
   position:relative;
   bottom:8px;left:12px;
-}#logOutButton {
+}.logOutButton {
   position:relative;
   bottom:-2px;
-}#loggedUser {
+}.loggedUser {
+  background: rgb(0,0,0);
   background: rgba(0,0,0,0.2);
   border:none;
   height:35px;
   margin-top:-1px;
-}#loggedUser a {
+}.loggedUser a {
   display:block;
   text-shadow:none;
   color:#fff;
@@ -100,15 +102,15 @@
 
 /* Sort buttons above the list */
 .sortButton {
+  background: rgb(0,0,0);
   background: rgba(0,0,0,0.2);
   display:inline;
 }.sortButton:active {
-  outline:none;
   color:#fff;
 }.sortButton:focus {
   outline:none;
 }.sortButton:focus,.sortButton.active {
-  color:#fff;background:rgba(0,0,0,0.5);
+  color:#fff;background:rgb(0,0,0);background:rgba(0,0,0,0.5);
 }.sortButton:selected {
   background:#efefef;
 }.sortButton:hover {
@@ -162,7 +164,7 @@ input.votingButton {
 
 /* Button generics */
 .btn {
-  -moz-border-radius:10px;
   -webkit-border-radius:10px;
+  -moz-border-radius:10px;
   border-radius:10px;
 }.btn.inactive:focus,.btn.active:focus{outline:0;}
